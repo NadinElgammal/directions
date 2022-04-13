@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProductsView from '../views/ProductsView'
-// import ProductProfile from './views/ProductProfile.vue'
+import ProductProfile from '../views/ProductProfile.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,16 +10,17 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
- 
+
   },
   {
     path: '/products',
-    name: 'products',
+    name: 'ProductsView',
     component: ProductsView
   },
   {
-    path: '/productprofile',
-    name: 'productprofile'
+    path: '/product-profile/:product_id',
+    name: 'ProductProfile',
+    component: ProductProfile
   }
 ]
 
