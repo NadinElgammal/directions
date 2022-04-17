@@ -10,7 +10,8 @@ git <template>
         </div>
       </div>
     </div>
-    <b-button :to="{ path: '/Products'}" variant="success">Home</b-button>
+    <!-- <b-button :to="{ path: '/Products'}" variant="success">Home</b-button> -->
+    <router-link :to="{name:'ProductsView'}" class="btn"> Home </router-link>
 </section>
 </template>
 
@@ -18,7 +19,7 @@ git <template>
 import navbar from '../components/navbar.vue'
 export default {
     name: "ProductProfile",
-    component:{
+    components:{
        navbar,
     },
     data() {
@@ -84,3 +85,11 @@ export default {
     }
 }
 </script>
+
+<style lang ="css" scoped>
+   .btn{
+     text-decoration: none;
+     background-color:green;
+     color: #fff;
+   }
+</style>
