@@ -36,11 +36,7 @@
 
 <script>
 export default {
-    data(){
-       return{
-           
-       }
-    }
+    name: "navbar",
 }
 </script>
 <style scoped>

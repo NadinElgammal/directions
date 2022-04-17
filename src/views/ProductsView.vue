@@ -1,7 +1,6 @@
 <template>
 <div>
-  <title> SHOP </title>
-  <navbar />
+  <navbar/>
   <br>
    <!-- <b-button variant="success">
      HelloWorld

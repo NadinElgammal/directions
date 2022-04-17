@@ -1,19 +1,28 @@
-<template>
-    <section class="product-profile">
-        <h1>Product id : {{ productData.id }}</h1>
-        <h2>product name : {{ productData.title }}</h2>
-        <h2>product price : {{ productData.price }}</h2>
-        full name is: {{ fullName }}
-    </section>
+git <template>
+  <section class="products">
+   <navbar/>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <img :src="productData.image" alt="">
+            <h5>ID : {{ productData.id }}</h5>
+            <h5>Price : {{ productData.price }}</h5>
+        </div>
+      </div>
+    </div>
+    <b-button :to="{ path: '/Products'}" variant="success">Home</b-button>
+</section>
 </template>
 
 <script>
+import navbar from '../components/navbar.vue'
 export default {
     name: "ProductProfile",
+    component:{
+       navbar,
+    },
     data() {
       return {
-        firstName: "Ahmed",
-        lastName: "Mohamed",
 
         id: this.$route.params.product_id,
 
@@ -67,9 +76,11 @@ export default {
         return this.products.find(product => product.id == this.id);
       },
 
-      fullName() {
-        return this.firstName + " " + this.lastName;
-      }
+      // filtringProducts: function() {
+      //    if(this.productData.price>200)
+      //    console.log('Product is expensive')
+      //    return 'Product is expensive'
+      // }
     }
 }
 </script>
