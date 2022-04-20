@@ -1,6 +1,7 @@
 git <template>
   <section class="products">
    <navbar/>
+   <br> <br>
     <div class="container">
       <div class="row">
         <div class="col-lg-3">

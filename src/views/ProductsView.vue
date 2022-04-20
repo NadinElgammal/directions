@@ -8,6 +8,41 @@
    <br><br><br>
 
   <Products :products="products" />
+
+  <!-- <div>
+    <label> Hour </label>
+    <input type="text" v-model="hour"><br>
+    <label> Minute </label>
+    <input type="text" v-model="minute"><br>
+    <label> Second </label>
+    <input type="text" v-model="second"> <br> 
+  </div> -->
+
+<div class="container">
+    <form id="signup-form" @submit.prevent>
+      <div class="row">
+        <div class="col-12 form-group">
+          <label class="col-form-label col-form-label-lg">Full Name  <span class="text-danger">*</span> </label>
+          <input type="text" v-model="loginForm.name" class="form-control">
+        </div>
+        <div class="col-12 form-group">
+          <label class="col-form-label col-form-label-lg">Email  <span class="text-danger">*</span> </label>
+          <input type="email" v-model="loginForm.email" class="form-control">
+        </div>
+        <div class="col-12 form-group">
+          <label class="col-form-label col-form-label-lg">Password <span class="text-danger">*</span> </label>
+          <input type="password" v-model="loginForm.pass" class="form-control">
+        </div>
+        <div class="col-12 form-group">
+          <label class="col-form-label col-form-label-lg">Phone number <span class="text-danger">*</span> </label>
+          <input v-model="loginForm.num" class="form-control"> 
+        </div>
+        <div class="col-12 form-group text-center">
+          <button @click="getData" type="submit" class="btn btn-primary"> signup </button>
+        </div>
+      </div>
+    </form>
+</div>
 </div>
 </template>
 
@@ -25,6 +60,16 @@ export default {
   },
   data(){
     return {
+      loginForm:{
+       name:null,
+       email:null,
+       pass:null,
+       num:null
+      },
+      hour:0,
+      minute:0,
+      second:0,
+
       products: [
         {
           id: 1,
@@ -69,6 +114,34 @@ export default {
 
   },
   methods : {
+    getData(){
+      let data = new FormData();
+      data.append ('name', this.loginForm.name) ;
+      data.append ('email', this.loginForm.email) ;
+      data.append ('pass', this.loginForm.pass) ;
+      data.append ('phone', this.loginForm.num) ;
+      this.axios.post(`https://jsonplaceholder.typicode.com/posts`, data ).then((response) => {
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+  },
+ 
+  watch :{
+    hour(v){
+      this.minute = v * 60
+      console.log('Run hour') 
+    },
+    minute(v){
+      this.hour = v / 60 
+      this.second = v * 60
+      console.log('Run Min')
+    },
+    second(v){
+      this.minute = v / 60
+      console.log('Run sec')
+    }
   }
 }
 </script>
