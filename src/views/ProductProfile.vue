@@ -1,7 +1,7 @@
 git <template>
   <section class="products">
-   <navbar/>
-   <br> <br>
+  <navbar/>
+  <br> <br>
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
@@ -13,15 +13,20 @@ git <template>
     </div>
     <!-- <b-button :to="{ path: '/Products'}" variant="success">Home</b-button> -->
     <router-link :to="{name:'ProductsView'}" class="btn"> Home </router-link>
+    
+        {{ name }}
+        {{ cartTotalPrice }}
 </section>
 </template>
 
 <script>
 import navbar from '../components/navbar.vue'
+import { mapGetters} from 'vuex'
+import { mapState } from 'vuex'
 export default {
     name: "ProductProfile",
     components:{
-       navbar,
+    navbar,
     },
     data() {
       return {
@@ -78,19 +83,24 @@ export default {
         return this.products.find(product => product.id == this.id);
       },
 
-      // filtringProducts: function() {
-      //    if(this.productData.price>200)
-      //    console.log('Product is expensive')
-      //    return 'Product is expensive'
-      // }
+      // dataTest(){
+      //   return this.$store.state.name
+      // },
+      ...mapState([
+            // map this.name to store.state.name
+            'name'
+        ]),
+      ...mapGetters([
+            'cartTotalPrice'
+        ])
     }
 }
 </script>
 
 <style lang ="css" scoped>
-   .btn{
-     text-decoration: none;
-     background-color:green;
-     color: #fff;
-   }
+  .btn{
+  text-decoration: none;
+  background-color:green;
+  color: #fff;
+  }
 </style>

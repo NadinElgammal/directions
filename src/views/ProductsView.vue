@@ -2,10 +2,10 @@
 <div>
   <navbar/>
   <br>
-   <!-- <b-button variant="success">
-     HelloWorld
-   </b-button> -->
-   <br><br><br>
+  <!-- <b-button variant="success">
+  HelloWorld
+  </b-button> -->
+  <br><br><br>
 
   <Products :products="products" />
 
@@ -35,10 +35,11 @@
         </div>
         <div class="col-12 form-group">
           <label class="col-form-label col-form-label-lg">Phone number <span class="text-danger">*</span> </label>
-          <input v-model="loginForm.num" class="form-control"> 
+          <input v-model="loginForm.num" class="form-control" type="tel"> 
         </div>
         <div class="col-12 form-group text-center">
-          <button @click="getData" type="submit" class="btn btn-primary"> signup </button>
+        <br> 
+          <button @click="getData" type="submit" class="btn btn-primary"> Submit </button>
         </div>
       </div>
     </form>
@@ -61,10 +62,10 @@ export default {
   data(){
     return {
       loginForm:{
-       name:null,
-       email:null,
-       pass:null,
-       num:null
+        name:null,
+        email:null,
+        pass:null,
+        num:null
       },
       hour:0,
       minute:0,
@@ -120,14 +121,14 @@ export default {
       data.append ('email', this.loginForm.email) ;
       data.append ('pass', this.loginForm.pass) ;
       data.append ('phone', this.loginForm.num) ;
-      this.axios.post(`https://jsonplaceholder.typicode.com/posts`, data ).then((response) => {
+      this.axios.post(`https://jsonplaceholder.typicode.com/posts`, data  ).then((response) => {
             console.log(response.data);
         }).catch((error) => {
             console.log(error)
         });
     }
   },
- 
+
   watch :{
     hour(v){
       this.minute = v * 60

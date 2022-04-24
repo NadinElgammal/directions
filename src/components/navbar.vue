@@ -29,6 +29,10 @@
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
+      <b-navbar-nav>
+        <b-nav-item href="#"><font-awesome-icon icon="fa-solid fa-cart-arrow-down" class="cart" size="lg"/>
+      </b-nav-item>
+      </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </div>
@@ -41,4 +45,7 @@ export default {
 </script>
 <style scoped>
 
+.cart{
+  text-align:"right"
+}
 </style>

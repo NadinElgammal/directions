@@ -1,6 +1,6 @@
 <template>
 <section class="products">
-      <div class="container">
+    <div class="container">
           <div class="row">
               <div class="col-lg-3" v-for="product in products" :key="product.id">
                       <img :src="product.image" alt="" v-if="product.image">
