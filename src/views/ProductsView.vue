@@ -15,7 +15,7 @@
     <label> Minute </label>
     <input type="text" v-model="minute"><br>
     <label> Second </label>
-    <input type="text" v-model="second"> <br> 
+    <input type="text" v-model="second"> <br>
   </div> -->
 
 <div class="container">
@@ -35,14 +35,17 @@
         </div>
         <div class="col-12 form-group">
           <label class="col-form-label col-form-label-lg">Phone number <span class="text-danger">*</span> </label>
-          <input v-model="loginForm.num" class="form-control" type="tel"> 
+          <input v-model="loginForm.num" class="form-control" type="tel">
         </div>
         <div class="col-12 form-group text-center">
-        <br> 
+        <br>
           <button @click="getData" type="submit" class="btn btn-primary"> Submit </button>
         </div>
       </div>
     </form>
+    <br>
+    <br><br><br>
+
 </div>
 </div>
 </template>
@@ -132,10 +135,10 @@ export default {
   watch :{
     hour(v){
       this.minute = v * 60
-      console.log('Run hour') 
+      console.log('Run hour')
     },
     minute(v){
-      this.hour = v / 60 
+      this.hour = v / 60
       this.second = v * 60
       console.log('Run Min')
     },
